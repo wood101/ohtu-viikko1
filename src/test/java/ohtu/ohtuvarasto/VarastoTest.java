@@ -43,7 +43,7 @@ public class VarastoTest {
         varasto = new Varasto(5, 5);
         assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
         varasto = new Varasto(2, 5);
-        assertEquals(2, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(3, varasto.getSaldo(), vertailuTarkkuus);
     }   
     
     @Test
