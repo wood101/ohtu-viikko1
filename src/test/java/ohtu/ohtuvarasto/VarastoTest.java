@@ -21,6 +21,64 @@ public class VarastoTest {
     }
 
     @Test
+    public void konstruktoriinAsetettuNegatiivinenArvo() {
+        varasto = new Varasto(-5);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+    }         
+    
+    @Test
+    public void konstruktoriinSaldollaAsetettuNegatiivinenTilavuus() {
+        varasto = new Varasto(-5, 0);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+    }      
+
+    @Test
+    public void konstruktoriinSaldollaAsetettuNegatiivinenSaldo() {
+        varasto = new Varasto(5, -5);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }   
+
+    @Test
+    public void konstruktoriinSaldollaAsetettuPositiivineSaldo() {
+        varasto = new Varasto(5, 5);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+        varasto = new Varasto(2, 5);
+        assertEquals(2, varasto.getSaldo(), vertailuTarkkuus);
+    }   
+    
+    @Test
+    public void varastoonLisaaminenNegatiivisellaSyotteella() {
+        varasto.lisaaVarastoon(-5);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }     
+
+    @Test
+    public void varastoonLisaaminenTilavuudenYli() {
+        varasto.lisaaVarastoon(15);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }         
+    
+    @Test
+    public void varastostaNegatiivisenMaaranOttaminen() {
+        varasto.lisaaVarastoon(5);
+        varasto.otaVarastosta(-5);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }  
+
+    @Test
+    public void varastostaSaldonYliOttaminen() {
+        varasto.lisaaVarastoon(5);
+        varasto.otaVarastosta(15);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }      
+    
+    @Test
+    public void toStringTesti() {
+        varasto.lisaaVarastoon(5);
+        assertEquals("saldo = " + 5.0 + ", vielä tilaa " + 5.0, varasto.toString());
+    }      
+    
+    @Test
     public void konstruktoriLuoTyhjanVaraston() {
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
