@@ -1,3 +1,4 @@
+/.gradle
 /build
 *tmp
 /RiippuvuuksienInjektointi1/.nb-gradle/
