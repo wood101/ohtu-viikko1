@@ -1,6 +1,7 @@
 package ohtuesimerkki;
 
 public class Main {
+    private static final int MAARA = 10;
     public static void main(String[] args) {
         Statistics stats = new Statistics( new PlayerReader("http://nhlstats-2013-14.herokuapp.com/players.txt") );
           
@@ -12,7 +13,7 @@ public class Main {
         System.out.println("");
         
         System.out.println("Top scorers");
-        for (Player player : stats.topScorers(10) ) {
+        for (Player player : stats.topScorers(MAARA) ) {
             System.out.println( player );
         }        
     }
